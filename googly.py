@@ -141,19 +141,19 @@ class GOOGLY(object):
     
         home_url = self.__url_contruction(home=True)
         # Grab the cookie from the home page.
-        self.__get_page(home_url)
+        self._get_page(home_url)
     
         # Prepare the URL of the first request.
         url_search = self.__url_contruction()
         # Request the Google Search results page.
-        html = self.__get_page(url_search)
+        html = self._get_page(url_search)
     
         # Parse the response and extract the summaries
         soup = BeautifulSoup(html)
         return soup.findAll("div", {"class": "s"})
         
     # Request the given URL and return the response page, using the cookie jar.
-    def __get_page(self, url):
+    def _get_page(self, url):
         """
         Request the given URL and return the response page, using the cookie jar.
     
